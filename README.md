@@ -2,6 +2,8 @@
 
 This repository contains code that showcases a sample factor-based research process for a risk-premia flavor factor research project. The notebooks are structured in sequence to guide readers through data retrieval, modeling, strategy development, and performance attribution. Each notebook includes comments that walk the reader through results and the reasoning behind decisions.
 
+To note is that I do not use Fama-French's portfolio method to fit Betas, instead I fit Betas at a firm level, to better capture firm specific sensitivities.
+
 ## Repository Structure
 
 The code files are ordinally named as follows:
@@ -37,6 +39,16 @@ The goal of this task was to showcase a research process for a risk-premia facto
 - **Portfolio Strategy:** A basic Long/Short (L/S) portfolio is built and presented using the models developed in 2.0. The results are expectedly poor, but metrics for assessment are included.
 
 - **Risk Exposure Analysis:** Notebook 4.0 provides a framework using Fama-French 3 factors to assess portfolio risk exposure by analyzing returns.
+
+## Real-World Implementation Notes
+
+Research outcome: Value in this form is weak, simple Momentum is stronger, but they are still insufficient on their own to explain a significant variation in firm-specific returns.
+
+I use OLS in the research process here, this assumes normal returns, and the shortfalls of this approach is clear in the fitted vs actual plots. What this tangibly means is that the model will systematically underrepresent large market moves in the upside or downside, and an additional risk management layer would preferably be developed on top of the market allocation. 
+
+The strategy rebalances at a monthly frequency.
+
+The Risk Exposure Analysis can be used to finetune portfolios to better adhere to risk factor exposure (Value, Momentum, Profitability) mandates.
 
 ## Limitations and Considerations
 
